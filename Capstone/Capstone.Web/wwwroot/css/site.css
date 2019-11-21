@@ -1,0 +1,152 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin-top:120px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.forecast {
+    grid-area: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.forecastToday{
+    flex-basis: 25%;
+}
+
+.forecastUpcoming {
+    flex-basis: 10%;
+}
+
+.forecastUpcoming img{
+    width: 100px;
+}
+
+.carouselImages {
+    grid-area: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.carouselImages img {
+     flex-basis: 30%;
+     height: 200px;
+     border: 3px solid #006400;
+}
+
+.mySlides {
+    margin-bottom: 40px;
+    border: 3px solid #006400;
+}
+
+.allparks img {
+    padding: 0 50px 50px 0;
+    width: 500px;
+}
+
+.park-image-API{
+    padding: 0 50px 50px 0;
+    width: 500px;
+}
+
+.favoriteparks img {
+    padding: 10px 25px 10px 0;
+    width: 300px;
+}
+
+.favoriteparks td {
+    padding:15px;
+}
+
+
+#home-page {
+    padding-top: 50px;
+}
+
+#park-detail-image{
+    width: 100%;
+}
+
+.newPostMessage {
+    background-color: #006400;
+    color: white;
+    padding: 12px 0px;
+    border-radius: 5px;
+}
+
+.logo{
+    border-bottom: hidden;
+}
+
+.navbar {
+    background-color: #FFFFFF;
+    border-bottom: 0;
+}
+
+.navbar-collapse {
+    background-color: #006400;
+    text-decoration: none;
+    color: #000000;
+}
+
+.surveyTable {
+    border-spacing: 30px 10px;
+    border-collapse: separate;
+}
+
+input[type="radio"] {
+    margin-left: 10px;
+    
+}
+
+input:invalid {
+    background-color: pink;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+h4 {
+    padding-top: 50px;
+}

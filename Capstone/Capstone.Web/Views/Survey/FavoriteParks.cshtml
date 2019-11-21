@@ -1,0 +1,22 @@
+﻿@model IList<SurveyPost>
+@{
+    ViewData["Title"] = "FavoriteParks";
+}
+
+@*TODO Fix Confirmation Message, make it look pretty*@
+<h2 align="center">Favorite Parks</h2>
+
+<div class="favoriteparks">
+    <h4 class="newPostMessage" align="center">Your vote has been counted!</h4>
+    <table class="table-striped">
+        @foreach (SurveyPost post in Model)
+        {
+            <tr>
+                <td><img src="~/images/@(post.ParkCode).jpg" alt="@post.ParkName" /></td>
+                <td><strong>@post.ParkName</strong></td>
+                <td>Number of Votes: @post.SurveyCount</td>
+            </tr>
+        }
+    </table>
+</div>
+

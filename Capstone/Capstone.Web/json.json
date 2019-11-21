@@ -1,0 +1,21 @@
+{
+  "total": "1",
+  "data": [
+    {
+      "states": "OH",
+      "latLong": "lat:41.26093905, long:-81.57116722",
+      "description": "Though a short distance from the urban areas of Cleveland and Akron, Cuyahoga Valley National Park seems worlds away. The park is a refuge for native plants and wildlife, and provides routes of discovery for visitors. The winding Cuyahoga River gives way to deep forests, rolling hills, and open farmlands. Walk or ride the Towpath Trail to follow the historic route of the Ohio & Erie Canal.",
+      "designation": "National Park",
+      "parkCode": "cuva",
+      "id": "F4D44F29-3F67-498F-B05B-0783473D2708",
+      "directionsInfo": "Plane\nCleveland Hopkins International Airport and Akron-Canton Regional Airport offer many daily flights to the area. Car rentals are available at both airports.\n\nBus & Train\nBus stations are located in downtown Cleveland and Akron. The Amtrak station is in downtown Cleveland.\n\nCar\nThe park is easily accessible by car from all directions. A good place to start your visit is at Boston Mill Visitor Center located at 6947 Riverview Road, Peninsula, Ohio 44264. (41° 15'45.3\" N) (81° 33'37.3\" W).",
+      "directionsUrl": "http:\/\/www.nps.gov\/cuva\/planyourvisit\/directions.htm",
+      "fullName": "Cuyahoga Valley National Park",
+      "url": "https:\/\/www.nps.gov\/cuva\/index.htm",
+      "weatherInfo": "Spring's rain and warming temperatures bring new leaves on trees, blooming wildflowers, and visitors anxious get out on the trail. \n\nSummer temperatures range from 49 to 95 degrees F and can be humid. Dressing in layers is advisable. \n\nFall temperatures can range from low 70s during the day to freezing during the night. Fall foliage often peaks in mid-October.\n\nWinter weather conditions can rapidly change, due to the lake effect snow from Lake Erie. Temperatures vary from mid-30s to below zero.",
+      "name": "Cuyahoga Valley"
+    }
+  ],
+  "limit": "50",
+  "start": "1"
+}

@@ -1,0 +1,39 @@
+﻿@model SurveyVM
+@{
+    ViewData["Title"] = "Survey";
+}
+
+<h2>Vote For Your Favorite Park!</h2>
+
+<form method="post">
+    <table class="surveyTable">
+        <tr>
+            <td><label asp-for="@Model.Survey.ParkCode">Favorite National Park:</label></td>
+            <td><select asp-for="@Model.Survey.ParkCode" asp-items="@Model.ParkDropdown"></select></td>
+        </tr>
+        <tr>
+            <td><label asp-for="@Model.Survey.EmailAddress">Your Email: </label></td>
+            <td><input asp-for="@Model.Survey.EmailAddress" /><span asp-validation-for="@Model.Survey.EmailAddress" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="@Model.Survey.State">State of Residence:</label></td>
+            <td><select asp-for="@Model.Survey.State" asp-items="@((List<SelectListItem>)ViewData["States"])"></select></td>
+        </tr>
+        <tr>
+            <td><label asp-for="@Model.Survey.ActivityLevel">Activity Level:</label></td>
+            <td>
+                <input type="radio" asp-for="@Model.Survey.ActivityLevel" value="inactive"> Inactive
+                <input type="radio" asp-for="@Model.Survey.ActivityLevel" value="sedentary"> Sedentary
+                <input type="radio" asp-for="@Model.Survey.ActivityLevel" value="active"> Active
+                <input type="radio" asp-for="@Model.Survey.ActivityLevel" value="extremely_active"> Extremely Active
+                <span asp-validation-for="@Model.Survey.ActivityLevel" class="error"></span>
+            </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit!" /></td>
+        </tr>
+    </table>
+
+</form>

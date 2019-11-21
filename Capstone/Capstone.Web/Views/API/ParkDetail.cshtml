@@ -1,0 +1,77 @@
+﻿@model ApiVM
+@{
+    ViewData["Title"] = "ParkDetail";
+}
+
+<section id="park-detail">
+    <h2>@Model.ParkData.fullName Details</h2>
+    <div>
+        @if (Model.Images.Count >= 4)
+        {
+
+            <div class="w3-content" style="max-width:1200px">
+                <img class="mySlides" src="@Model.Images[2].url" alt="@Model.Images[2].altText" style="width:100%; display: block;">
+                <img class="mySlides" src="@Model.Images[3].url" alt="@Model.Images[3].altText" style="width:100%; display: none;">
+                <img class="mySlides" src="@Model.Images[1].url" alt="@Model.Images[1].altText" style="width:100%; display: none;">
+
+                <div class="carouselImages">
+                    <div class="carouselSingle" onclick="currentDiv(1)" style="font-size: 24px;"><img src="@Model.Images[2].url" alt="@Model.Images[2].altText"></div>
+                    <div class="carouselSingle" onclick="currentDiv(2)" style="font-size: 24px;"><img src="@Model.Images[3].url" alt="@Model.Images[3].altText"></div>
+                    <div class="carouselSingle" onclick="currentDiv(3)" style="font-size: 24px;"><img src="@Model.Images[1].url" alt="@Model.Images[1].altText"></div>
+                </div>
+            </div>
+        }
+        else if (Model.Images.Count > 0)
+        {
+            <img class="mySlides" src="@Model.Images[0].url" alt="@Model.Images[0].altText" style="width:100%; display: block;">
+        }
+
+        else
+        {
+            <p>Sorry, there are no images for this park.  Go take some photos and send them to the National Park Service!</p>
+        }
+        <h3>@Model.ParkData.fullName</h3>
+        <p>State: @Model.ParkData.states</p>
+        <p>@Model.ParkData.description</p><br />
+        <p>Weather Information: @Model.ParkData.weatherInfo </p>
+        <br />
+        <h4>Current Weather at @Model.ParkData.name: </h4>
+        <p>The current temperature is: @Model.WeatherObject.main.temp degrees and the forecast is @Model.WeatherObject.weather[0].description!</p>
+
+        @*@if (Model.EntranceFee.cost != null)
+        {
+            <p>Entrance fee: @($"{Convert.ToDouble(Model.EntranceFee.cost):C}") @Model.EntranceFee.description</p>
+        }*@
+    </div>
+    @*<h3>Click <a asp-controller="Park" asp-action="ParkForecast" asp-route-parkCode="@Model.ParkCode">here</a> for the 5-day forecast!</h3>*@
+</section>
+
+<script type="text/javascript">
+    function currentDiv(n) {
+//        showDivs(slideIndex = n);
+
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            if (i + 1 == n) {
+                x[i].style.display = "block";
+            }
+        }
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+        }
+        x[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " w3-opacity-off";
+    }
+</script>

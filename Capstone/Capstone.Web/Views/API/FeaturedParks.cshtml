@@ -1,0 +1,24 @@
+﻿@model ApiVM
+@{
+    ViewData["Title"] = "FeaturedParks";
+}
+
+<h2>Featured Parks</h2>
+
+<section id="api-home-page">
+    <table class="allparksAPI">
+        @for (int i = 0; i < 10; i++)
+        {
+            <tr>
+                <div class="park-row-API">
+                    <td><a asp-controller="API" asp-action="ParkDetail" asp-route-parkCode="@Model.Parks[i].parkCode"> <img class="park-image-API" width="500" src="@Model.Images[(4*i)+1].url" alt="@Model.Images[(4*1)+1].altText" /></a></td>
+                    <td valign="top">
+                        <h3><a asp-controller="API" asp-action="ParkDetail" asp-route-parkCode="@Model.Parks[i].parkCode">@Model.Parks[i].fullName</a></h3>
+                        <p>Location:  @Model.Parks[i].states</p>
+                        <p>@Model.Parks[i].description</p>
+                    </td>
+                </div>
+            </tr>
+        }
+    </table>
+</section>

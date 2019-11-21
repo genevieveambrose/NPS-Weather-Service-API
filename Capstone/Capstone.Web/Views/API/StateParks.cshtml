@@ -1,0 +1,31 @@
+﻿@model ApiVM
+@{
+    ViewData["Title"] = "StateParks";
+}
+
+<h2>State Parks, Monuments, and Historic Sites</h2>
+
+<section id="api-home-page">
+    <table class="allparksAPI">
+        @for (int i = 0; i < Model.Parks.Count; i++)
+        {
+            <tr>
+                <div class="park-row-API">
+                    @if(Model.Parks[i].images.Count() > 0)
+                    {
+                        <td><a asp-controller="API" asp-action="ParkDetail" asp-route-parkCode="@Model.Parks[i].parkCode"> <img class="park-image-API" width="500" src="@Model.Parks[i].images[0].url" alt="@Model.Parks[i].images[0].altText" /></a></td>
+                    }
+                    else
+                    {
+                        <td><img class="park-image-API" src="~/images/no-image-available.png" /></td>
+                    }
+                    <td valign="top">
+                        <h3><a asp-controller="API" asp-action="ParkDetail" asp-route-parkCode="@Model.Parks[i].parkCode">@Model.Parks[i].fullName</a></h3>
+                        <p>Location:  @Model.Parks[i].states</p>
+                        <p>@Model.Parks[i].description</p>
+                    </td>
+                </div>
+            </tr>
+        }
+    </table>
+</section>

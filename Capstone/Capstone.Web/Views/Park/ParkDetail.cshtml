@@ -1,0 +1,30 @@
+﻿@model Park
+@{
+    ViewData["Title"] = "ParkDetail";
+}
+
+<section id="park-detail">
+<h2>@Model.ParkName Details</h2>
+
+    <div>
+        <img id="park-detail-image" src="~/images/@(Model.ParkCode).jpg" alt="@Model.ParkName" />
+        <h3>@Model.ParkName</h3>
+        <p>State: @Model.State</p>
+        <p>@Model.ParkDescription</p><br />
+        <ul>
+            <li>Acreage: @Model.Acreage acres</li>
+            <li>Elevation: @Model.ElevationInFeet feet</li>
+            <li>Miles of Trail: @Model.MilesOfTrail miles</li>
+            <li>Number of Campsites: @Model.NumberOfCampsites campsites</li>
+            <li>Climate: @Model.Climate</li>
+            <li>Year Founded: @Model.YearFounded</li>
+            <li>Annual Visitor Count: @Model.AnnualVisitorCount visitors per year</li>
+            <li>"@Model.InspirationalQuote" - @Model.InspirationalQuoteSource</li>
+            <li>Entry Fee: @($"{Model.EntryFee:C}")</li>
+            <li>Number of Animal Species: @Model.NumberOfAnimalSpecies</li>
+        </ul>
+    </div>
+<h3>Click <a asp-controller="Park" asp-action="ParkForecast" asp-route-parkCode="@Model.ParkCode">here</a> for the 5-day forecast!</h3>
+</section>
+
+

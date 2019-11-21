@@ -1,0 +1,23 @@
+﻿@model ApiVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form method="get" asp-controller="API" asp-action="StateParks">
+    <table class="surveyTable">
+        
+        <tr>
+            <td><strong>Click <a asp-controller="API" asp-action="FeaturedParks">here </a>to view Featured Parks!</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label asp-for="@Model.StateCode">Or, select a State to explore National Parks and Monuments!</label></td>
+            <td><select asp-for="@Model.StateCode" asp-items="@((List<SelectListItem>)ViewData["States"])"></select></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit!" /></td>
+        </tr>
+    </table>
+</form>

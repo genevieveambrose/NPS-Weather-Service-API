@@ -1,0 +1,96 @@
+﻿@model ForecastVM
+@{
+    ViewData["Title"] = "ParkForecast";
+}
+
+<h2>5-Day @Model.Forecasts[0].ParkName Forecast</h2>
+<div align="center">
+    <form method="post" asp-action="SaveTempPref">
+        <label asp-for="TempUnit">Display Temperature as:</label><br />
+        <input type="radio" asp-for="TempUnit" value="F"> Fahrenheit
+        <input type="radio" asp-for="TempUnit" value="C"> Celsius
+        <input type="hidden" asp-for="ParkCode" value="@Model.ParkCode" />
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+<div class="forecast">
+    <div class="forecastToday">
+        <h3>Today</h3>
+        @if (Model.Forecasts[0].DailyForecast == "partly cloudy")
+        {
+            <img src="~/images/partlycloudy.png" alt="@Model.Forecasts[0].DailyForecast" />
+        }
+        else
+        {
+            <img src="~/images/@(Model.Forecasts[0].DailyForecast).png" alt="@Model.Forecasts[0].DailyForecast" />
+        }
+
+        @if ((string)ViewData["TempPref"] == "C")
+        {
+            <p>High: @(Model.Forecasts[0].HighCelsius)ºC    Low: @(Model.Forecasts[0].LowCelsius)ºC</p>
+        }
+        else
+        {
+            <p>High: @(Model.Forecasts[0].High)ºF    Low: @(Model.Forecasts[0].Low)ºF</p>
+        }
+
+        @if (Model.Forecasts[0].DailyForecast == "snow")
+        {
+            <p>Pack Snowshoes!</p>;
+        }
+        else if (Model.Forecasts[0].DailyForecast == "rain")
+        {
+            <p>Pack rain gear and wear waterproof shoes!</p>
+        }
+
+        else if (Model.Forecasts[0].DailyForecast == "thunderstorms")
+        {
+            <p>Seek shelter and avoid hiking on exposed ridges!</p>
+        }
+
+        else if (Model.Forecasts[0].DailyForecast == "sun")
+        {
+            <p>Pack sunblock!</p>
+        }
+
+        @if (Model.Forecasts[0].High > 75)
+        {
+            <p>Bring an extra gallon of water!</p>
+        }
+        else if (Model.Forecasts[0].Low < 20)
+        {
+            <p>Danger: Frigid Temperatures!</p>
+        }
+
+        @if (Model.Forecasts[0].TempDifference > 20)
+        {
+            <p>Wear breathable layers!</p>
+        }
+    </div>
+
+    @for (int i = 1; i <= 4; i++)
+    {
+    <div class="forecastUpcoming">
+
+        @if (Model.Forecasts[i].DailyForecast == "partly cloudy")
+        {
+            <img src="~/images/partlycloudy.png" alt="@Model.Forecasts[i].DailyForecast" />
+        }
+        else
+        {
+            <img src="~/images/@(Model.Forecasts[i].DailyForecast).png" alt="@Model.Forecasts[i].DailyForecast" />
+        }
+
+        @if ((string)ViewData["TempPref"] == "C")
+        {
+            <p>High: @(Model.Forecasts[i].HighCelsius)ºC</p> <p>Low: @(Model.Forecasts[i].LowCelsius)ºC</p>
+        }
+        else
+        {
+            <p>High: @(Model.Forecasts[i].High)ºF</p> <p>Low: @(Model.Forecasts[i].Low)ºF</p>
+        }
+    </div>
+    }
+
+</div>
